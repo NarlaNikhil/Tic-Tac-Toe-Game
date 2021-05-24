@@ -62,21 +62,23 @@ def draw_status():
 def check_win():
     global winner,draw,board
     for row in range(0, 4):
-        if ((board[row][0] == board[row][1] == board[row][2] ==board[row][3]) and (board[row][0] != None)):
+        if ((board[row][0] == board[row][1] == board[row][2] == board[row][3]) and (board[row][0] != None)):
             winner = board[row][0]
-            pygame.draw.line(screen, (0, 0, 139),
+            pygame.draw.line(screen, (250, 0, 0),
                          (0, (row + 1) * height / 4 - height / 8),
                          (width, (row + 1) * height / 4 - height / 8),
                          4)
             break
 
+
     for col in range(0, 4):
         if ((board[0][col] == board[1][col] == board[2][col] == board[3][col]) and (board[0][col] is not None)):
             winner = board[0][col]
-            pygame.draw.line(screen, (0, 128, 0), ((col + 1) * width / 4 - width / 8, 0),
-                         ((col + 1) * width / 4 - width / 8, height),4)
+            pygame.draw.line(screen, (250, 0, 0), ((col + 1) * width / 4 - width / 8, 0),
+                         ((col + 1) * width / 4 - width / 8, height),5)
             break
 
+            
     if (board[0][0] == board[1][1] == board[2][2]==board[3][3]) and (board[0][0] is not None):
         winner = board[0][0]
         pygame.draw.line(screen, (128, 0, 128), (20,20), (400, 400), 4)
@@ -149,7 +151,7 @@ def user_click():
 def reset_game():
     global board,XO,draw,winner
     board=[[None]*4,[None]*4,[None]*4,[None]*4]
-    X0='x'
+    XO='x'
     winner=None
     draw=False
     time.sleep(3)
